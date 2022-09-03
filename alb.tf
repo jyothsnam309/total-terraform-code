@@ -1,7 +1,7 @@
 resource "aws_security_group" "alb" {
   name        = "alb-sg"
   description = "Allow to enduser"
-  vpc_id      = aws_vpc.dev-vpc.id
+  vpc_id      = aws_vpc.stage-vpc.id
 
   ingress {
     description = "connecting to end user"

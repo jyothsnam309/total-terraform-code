@@ -6,7 +6,7 @@ data "http" "myip" {
 resource "aws_security_group" "bastion" {
   name        = "bastion-sg"
   description = "Allow admin to ssh"
-#  vpc_id      = aws_vpc.dev-vpc.id
+#  vpc_id      = aws_vpc.stage-vpc.id
 
   ingress {
     description = "connecting to admin"
@@ -26,7 +26,7 @@ resource "aws_security_group" "bastion" {
   }
 
   tags = {
-    Name = "dev-bastion-sg"
+    Name = "stage-bastion-sg"
   }
 }
 
@@ -36,13 +36,13 @@ resource "aws_security_group" "bastion" {
 resource "aws_instance" "bastion" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
-  #  vpc_id = "aws_vpc.dev-vpc.id"
-  subnet_id              = aws_subnet.dev-pub[1].id
+  #  vpc_id = "aws_vpc.stage-vpc.id"
+  subnet_id              = aws_subnet.stage-pub[].id
   vpc_security_group_ids = [aws_security_group.bastion.id]
  # key_name        = "${aws_key_pair.singapore.id}"
 
   tags = {
-    Name = "dev-bastion"
+    Name = "stage-bastion"
   }
 }
 
