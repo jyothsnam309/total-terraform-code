@@ -74,7 +74,7 @@ resource "aws_subnet" "stage-data" {
 
 #create eip
 
-resource "aws_eip" "stage-eip"{
+resource "aws_eip" "stage-eip" {
   vpc = true
 }
 
