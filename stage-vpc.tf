@@ -74,14 +74,14 @@ resource "aws_subnet" "stage-data" {
 
 #create eip
 
-resource "aws_eip" "eip" {
+resource "aws_eip" "stage-eip" {
   vpc = true
 }
 
 #create nat_gateway in pub sub
 
 resource "aws_nat_gateway" "stage-ngw" {
-  allocation_id = aws_eip.eip.id
+  allocation_id = aws_eip.stage-eip.id
   subnet_id     = aws_subnet.stage-pub[0].id
 
   tags = {
