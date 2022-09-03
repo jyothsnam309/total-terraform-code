@@ -37,7 +37,7 @@ resource "aws_instance" "bastion" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
   #  vpc_id = "aws_vpc.stage-vpc.id"
-  subnet_id              = aws_subnet.stage-pub[0].id
+  subnet_id              = aws_subnet.stage-pub[1].id
   vpc_security_group_ids = [aws_security_group.bastion.id]
  # key_name        = "${aws_key_pair.singapore.id}"
 

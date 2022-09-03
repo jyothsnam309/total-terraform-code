@@ -82,7 +82,7 @@ resource "aws_eip" "stage-eip" {
 
 resource "aws_nat_gateway" "stage-ngw" {
   allocation_id = aws_eip.stage-eip.id
-  subnet_id     = aws_subnet.stage-pub[0].id
+  subnet_id     = aws_subnet.stage-pub[1].id
 
   tags = {
     Name = " stage-Ngw"
