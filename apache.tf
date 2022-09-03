@@ -1,7 +1,7 @@
 resource "aws_security_group" "apache" {
   name        = "apache-sg"
   description = "Allow enduser "
-#  vpc_id      = aws_vpc.stage-vpc.id
+#  vpc_id      = aws_vpc.dev-vpc.id
 
   ingress {
     description     = "connecting to enduser"
@@ -39,14 +39,14 @@ resource "aws_security_group" "apache" {
 resource "aws_instance" "apache" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
-  #  vpc_id = "aws_vpc.stage-vpc.id"
-  subnet_id              = aws_subnet.stage-private[0].id
+  #  vpc_id = "aws_vpc.dev-vpc.id"
+  subnet_id              = aws_subnet.dev-private[0].id
   vpc_security_group_ids = [aws_security_group.apache.id]
 #  key_name        = "${aws_key_pair.singapore-pem.id}"
 
 
   tags = {
-    Name = "stage-apache"
+    Name = "dev-apache"
   }
 }
 

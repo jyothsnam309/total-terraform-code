@@ -6,7 +6,7 @@ output "zones" {
 
 
 output "vpc" {
-  value = aws_vpc.stage-vpc.id
+  value = aws_vpc.dev-vpc.id
 }
 
 output "countofaz" {
