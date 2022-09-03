@@ -74,9 +74,9 @@ resource "aws_subnet" "stage-data" {
 
 #create eip
 
-#resource "aws_eip" "stage-eip" {
-#  vpc = true
-#}
+resource "aws_eip" "stage-eip" {
+  vpc = true
+}
 
 #create nat_gateway in pub sub
 
