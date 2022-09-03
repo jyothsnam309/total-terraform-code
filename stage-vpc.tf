@@ -1,6 +1,6 @@
-#provider "aws" {
-# region = "ap-south-1"
-#}
+provider "aws" {
+ region = "ap-south-1"
+}
 
 #create the vpc
 resource "aws_vpc" "stage-vpc" {
