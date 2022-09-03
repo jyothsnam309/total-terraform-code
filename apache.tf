@@ -44,7 +44,7 @@ resource "aws_instance" "apache" {
   vpc_security_group_ids = [aws_security_group.apache.id]
 #  key_name        = "${aws_key_pair.singapore-pem.id}"
 
-s
+
   tags = {
     Name = "stage-apache"
   }
